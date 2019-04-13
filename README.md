@@ -1,2 +1,2 @@
 # TextPipe
-Make a pipeline to clean textual data.
+Prepare pipelines with any kind of function to apply on documents. Use a created pipeline on different textual data sets.
