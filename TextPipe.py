@@ -1,3 +1,4 @@
+import re
 class TextPipe(object):
     """
     Make a pipeline for text normalization. Apply a function to
@@ -98,7 +99,6 @@ class TextPipe(object):
         self.ops_target[self.__ops_counter__] = "filter_none"
         self.__ops_counter__ += 1
         
-    # TO DO: write a code to get source code of the functions and export them to apply anywhere else
     def pipeline(self,*args):
         """
         Execute whole pipeline to specified data.
@@ -110,3 +110,34 @@ class TextPipe(object):
             else:
                 docs.apply_docs(fun)
         return docs.documents
+    
+    def save(self,filename,external_vars=None):
+        try:
+            import dill
+            if len(self.ops) == 0 or len(self.ops_target) == 0:
+                raise AttributeError('Build a pipeline first.')
+                
+            tmp = {'inst':{'ops':self.ops,'ops_target':self.ops_target},
+                   'vars':external_vars}
+            with open(filename, 'wb') as f:
+                dill.dump(tmp, f)
+                
+        except ModuleNotFoundError:
+            print('Module `dill` is required to save pipelines.')
+        
+    def load(self,filename):
+        try:
+            import dill
+            with open(filename,'rb') as f:
+                tmp = dill.load(f)
+            
+            self.ops = tmp['inst']['ops']
+            self.ops_target = tmp['inst']['ops_target']
+            
+            if tmp['vars'] is not None:
+                for key,item in tmp['vars'].items():
+                    globals()[key] = item
+            
+        except ModuleNotFoundError:
+            print('Module `dill` is required to load pipelines.')
+            
