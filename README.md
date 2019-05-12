@@ -1,7 +1,7 @@
 # TextPipe
 
 ## Introduction
-TextPipe is a project for textual data cleaning and manipulating. It lets you to **create pipelines** with any kind of function to apply on documents and words. This pipeline could be **saved and loaded** to use with other datasets.
+**TextPipe is a project for textual data preprocessing, cleaning and manipulating.** It lets you to **create pipelines** with any kind of function to apply on documents. It sequentially executes all the functions added to it. This pipeline could be **saved and loaded** to use with other datasets.
 
 **Best possible use cases:**
 - When you are using the same procedure multiple times
@@ -13,6 +13,7 @@ TextPipe is a project for textual data cleaning and manipulating. It lets you to
 - Simple
 - Lightweight
 - No significant dependency
+- Readability
 
 ## Installation
 Clone this repository with following:
@@ -34,7 +35,6 @@ Here are some several walkthroughs. First, import `TextPipe`, read data and crea
 
 ```
 from TextPipe import TextPipe
-
 data = pd.read_csv("nytimes_leadparagraphs.csv",encoding="latin1")
 textnorm = TextPipe(documents = data["Content"],keys = data["Article_Id"])
 ```
@@ -58,8 +58,7 @@ print(textnorm.ops_target) # applied data
 Apply on any kind of textual data:
 
 ```
-print(textnorm.pipeline(data["Content"][:20],
-                        data["Article_Id"][:20]))
+print(textnorm.pipeline(data["Content"][:20],data["Article_Id"][:20]))
 ```
 
 Bonus: you can save this pipeline to apply later on:
