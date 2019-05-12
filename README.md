@@ -18,18 +18,21 @@
 
 ## Installation
 Clone this repository with following:
-
-`git clone`
+```
+git clone
+```
 
 ## Requirements
 Only dill, if you want to save and load your pipelines. Install with:
-
-`pip install dill`
+```
+pip install dill
+```
 
 ## Verification
 After installation, head to the directory and run:
-
-`$ python demo_pipe.py`
+```
+$ python demo_pipe.py
+```
 
 ## Basic Guideline
 Here are some several walkthroughs. First, import `TextPipe`, read data and create a `TextPipe` object.
