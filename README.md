@@ -3,13 +3,13 @@
 ## Introduction
 TextPipe is a project for textual data cleaning and manipulating. It lets you to **create pipelines** with any kind of function to apply on documents and words. This pipeline could be **saved and loaded** to use with other datasets.
 
-Best possible use cases:
+**Best possible use cases:**
 - When you are using the same procedure multiple times
 - When you have several set of functions to apply on different datasets
 - When you want to transfer the procedure to anyone else
 - When you want tidier code
 
-Advantages:
+**Advantages:**
 - Simple
 - Lightweight
 - No significant dependency
