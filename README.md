@@ -43,7 +43,7 @@ data = pd.read_csv("nytimes_leadparagraphs.csv",encoding="latin1")
 textnorm = TextPipe(documents = data["Content"],keys = data["Article_Id"])
 ```
 
-Note that only two arguments needed; documents itself and their identifier keys. Now specify the functions you want to apply on the dataset to create a pipeline:
+Note that only two arguments needed; *documents* and their *identifier keys*. Now specify the functions you want to apply on the dataset to create a pipeline, *either on documents (list of strings) or words (individual strings)*.
 
 ```
 textnorm.apply_docs(lambda x: punc.sub(" ",x).lower().split(" ")) # remove punc, lowercase, split into list
