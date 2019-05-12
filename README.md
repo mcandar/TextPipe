@@ -14,6 +14,7 @@
 - Lightweight
 - No significant dependency
 - Readability
+- No syntax to learn!
 
 ## Installation
 Clone this repository with following:
