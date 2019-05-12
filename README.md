@@ -62,7 +62,7 @@ print(textnorm.ops_target) # applied data
 Apply on any kind of textual data:
 
 ```
-print(textnorm.pipeline(data["Content"][:20],data["Article_Id"][:20]))
+textnorm.pipeline(data["Content"][:20],data["Article_Id"][:20])
 ```
 
 Bonus: you can save this pipeline to apply later on:
